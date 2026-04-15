@@ -1,0 +1,84 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --radius: 12px;
+  --glass-blur: blur(20px);
+
+  font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Dark mode (default) ── */
+:root {
+  color-scheme: dark;
+  --accent:       #a78bfa;
+  --accent-dark:  #8b5cf6;
+  --accent-dim:   rgba(167, 139, 250, 0.15);
+  --accent-glow:  rgba(167, 139, 250, 0.35);
+
+  --glass-bg:     rgba(255, 255, 255, 0.07);
+  --glass-bg2:    rgba(255, 255, 255, 0.04);
+  --glass-hover:  rgba(255, 255, 255, 0.11);
+  --glass-border: rgba(255, 255, 255, 0.12);
+
+  --sidebar-bg:   rgba(255, 255, 255, 0.05);
+  --sidebar-border: rgba(255, 255, 255, 0.09);
+
+  --text:  rgba(255, 255, 255, 0.93);
+  --muted: rgba(255, 255, 255, 0.45);
+
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Light mode ── */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --accent:       #7c3aed;
+    --accent-dark:  #6d28d9;
+    --accent-dim:   rgba(124, 58, 237, 0.08);
+    --accent-glow:  rgba(124, 58, 237, 0.25);
+
+    --glass-bg:     rgba(255, 255, 255, 0.65);
+    --glass-bg2:    rgba(255, 255, 255, 0.45);
+    --glass-hover:  rgba(255, 255, 255, 0.82);
+    --glass-border: rgba(0, 0, 0, 0.08);
+
+    --sidebar-bg:   rgba(255, 255, 255, 0.55);
+    --sidebar-border: rgba(0, 0, 0, 0.08);
+
+    --text:  #1a0533;
+    --muted: #7c5a99;
+
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+  }
+}
+
+/* ── Body ── */
+body { color: var(--text); min-height: 100vh; }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #08050f;
+    background-image:
+      radial-gradient(ellipse 90% 70% at 10% 35%, rgba(109, 40, 217, 0.20) 0%, transparent 65%),
+      radial-gradient(ellipse 70% 60% at 80% 75%, rgba(76, 29, 149, 0.18) 0%, transparent 60%),
+      linear-gradient(160deg, #08050f 0%, #0d0818 55%, #080510 100%);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #faf5ff;
+    background-image:
+      radial-gradient(ellipse 90% 70% at 15% 30%, rgba(221, 214, 254, 0.50) 0%, transparent 65%),
+      radial-gradient(ellipse 70% 60% at 82% 72%, rgba(237, 233, 254, 0.40) 0%, transparent 60%),
+      linear-gradient(160deg, #faf5ff 0%, #f5f3ff 50%, #eff6ff 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
